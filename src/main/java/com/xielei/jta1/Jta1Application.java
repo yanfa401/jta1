@@ -4,11 +4,11 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 
-import com.xielei.jta1.config.DBConfig1;
-import com.xielei.jta1.config.DBConfig2;
+import com.xielei.jta1.config.ProdProperties;
+import com.xielei.jta1.config.UserProperties;
 
 @SpringBootApplication
-//@EnableConfigurationProperties(value = {DBConfig1.class})
+@EnableConfigurationProperties(value = {UserProperties.class, ProdProperties.class})
 public class Jta1Application {
     
     public static void main(String[] args) {

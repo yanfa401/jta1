@@ -5,6 +5,7 @@ import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.xielei.jta1.entity.User;
@@ -28,6 +29,7 @@ public class MergeServiceImpl implements MergeService {
     @Autowired
     private UserRepository userRepository;
     
+    
     @Transactional
     @Override
     public void insert() {
@@ -45,7 +47,6 @@ public class MergeServiceImpl implements MergeService {
         
         
         int i = 1/0;
-        
         
     }
 }
