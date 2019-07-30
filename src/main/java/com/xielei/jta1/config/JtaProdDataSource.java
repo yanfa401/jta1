@@ -37,6 +37,11 @@ public class JtaProdDataSource {
     @Autowired
     private JpaVendorAdapter jpaVendorAdapter;
     
+    /**
+     * prod数据源
+     * @return
+     * @throws SQLException
+     */
     @Bean(name = "prodDataSource")
     public DataSource prodDataSource() throws SQLException {
         // 新建数据源，并将数据源配置信息装置
@@ -53,6 +58,12 @@ public class JtaProdDataSource {
         return xaDataSource;
     }
     
+    
+    /**
+     * prod库的实体管理器
+     * @return
+     * @throws Throwable
+     */
     @Bean(name = "prodEntityManager")
     @DependsOn("transactionManager")
     public LocalContainerEntityManagerFactoryBean computerEntityManager() throws Throwable {

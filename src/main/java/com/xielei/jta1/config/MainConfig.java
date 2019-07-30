@@ -34,7 +34,9 @@ public class MainConfig {
     }
     
     
-    //设置jpa的特性
+    /**
+     * 设置jpa的特性
+     */
     @Bean
     public JpaVendorAdapter jpaVendorAdapter() {
         HibernateJpaVendorAdapter hibernateJpaVendorAdapter = new HibernateJpaVendorAdapter();
@@ -56,6 +58,11 @@ public class MainConfig {
     }
     
     
+    /**
+     * 供给 PlatformTransactionManager使用
+     * @return
+     * @throws Throwable
+     */
     @Bean(name = "atomikosTransactionManager")
     public TransactionManager atomikosTransactionManager() throws Throwable {
         UserTransactionManager userTransactionManager = new UserTransactionManager();
@@ -66,6 +73,11 @@ public class MainConfig {
         return userTransactionManager;
     }
     
+    /**
+     * Atomikos事务管理器,用于管理多个数据源的事务
+     * @return
+     * @throws Throwable
+     */
     @Bean(name = "transactionManager")
     @DependsOn({ "userTransaction", "atomikosTransactionManager" })
     public PlatformTransactionManager transactionManager() throws Throwable {

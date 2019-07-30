@@ -37,6 +37,11 @@ public class JtaUserDataSource {
     @Autowired
     private JpaVendorAdapter jpaVendorAdapter;
     
+    /**
+     * user数据源
+     * @return
+     * @throws SQLException
+     */
     @Bean(name = "userDataSource")
     public DataSource userDataSource() throws SQLException {
         // 新建数据源，并将数据源配置信息装置
@@ -53,6 +58,12 @@ public class JtaUserDataSource {
         return xaDataSource;
     }
     
+    
+    /**
+     * user库的实体管理器
+     * @return
+     * @throws Throwable
+     */
     @Bean(name = "userEntityManager")
     @DependsOn("transactionManager")
     public LocalContainerEntityManagerFactoryBean computerEntityManager() throws Throwable {
